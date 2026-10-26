@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алексей Ордин | Коммерческий директор — Эксперт по ИКТ и ИБ</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.05em;
+        }
+
+        .subtitle {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .contacts-cta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary { background-color: var(--accent-color); color: #000; }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-secondary { border: 1px solid var(--border-color); color: var(--text-main); }
+        .btn-secondary:hover { background-color: var(--border-color); }
+
+        section {
+            margin: 50px 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover { transform: translateY(-5px); }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skills-category {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .skills-category h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .skills-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .timeline {
+            position: relative;
+            border-left: 2px solid var(--border-color);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 4px solid var(--accent-color);
+        }
+
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .timeline-company {
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content {
+            color: var(--text-muted);
+        }
+        .timeline-content li {
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .contacts-cta { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://via.placeholder.com/150" alt="Ордин Алексей" class="profile-img">
+            <h1>Ордин Алексей Вячеславович</h1>
+            <div class="subtitle">Sales Director | Эксперт по ИКТ, Международной кооперации и ИБ</div>
+            <p style="max-width:600px; margin: 0 auto; color: var(--text-muted);">
+                Топ-менеджер с более чем 17-летним опытом в сфере IT, телекома и кибербезопасности. Эксперт по развитию бизнеса B2B/B2G, GR-коммуникациям на уровне CxO и выводу технологических решений на новые рынки.
+            </p>
+            
+            <div class="contacts-cta">
+                <a href="mailto:alexey_ordin@mail.ru" class="btn btn-primary">Написать на почту</a>
+                <a href="tel:+79250081094" class="btn btn-secondary">Позвонить</a>
+                <a href="https://digitalattache.ru/attache_armenia" target="_blank" class="btn btn-secondary">Сайт миссии</a>
+            </div>
+        </header>
+
+        <section id="achievements">
+            <h2>Ключевые достижения</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$29.6M+</div>
+                    <div class="stat-desc">Объем поддержанного экспорта российских ИТ-решений в Армению за 2025 год</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">17+ лет</div>
+                    <div class="stat-desc">Успешного опыта работы в крупнейших технологических лидерах (Huawei, Samsung, Kaspersky)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$3.0M</div>
+                    <div class="stat-desc">Масштаб успешно реализованного проекта MDM в сфере здравоохранения Москвы</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4 шт.</div>
+                    <div class="stat-desc">Высших образования, включая ученую степень кандидата технических наук (Ph.D.)</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competencies">
+            <h2>Ключевые компетенции</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3>Развитие бизнеса и GR</h3>
+                    <ul class="skills-list">
+                        <li>B2B и B2G продажи сложного технологического оборудования</li>
+                        <li>Взаимодействие с профильными министерствами и ведомствами РФ и СНГ (СxO уровень)</li>
+                        <li>Управление государственными закупками и тендерами</li>
+                        <li>Стратегическое планирование и вывод ИТ-продуктов на новые рынки</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Технологическая экспертиза</h3>
+                    <ul class="skills-list">
+                        <li>Инфраструктура ЦОД и телекоммуникационные сети</li>
+                        <li>Информационная безопасность (NGFW, SD-WAN, ZTNA, защита КИИ)</li>
+                        <li>Проекты импортозамещения зарубежного ПО и оборудования</li>
+                        <li>Управление кросс-функциональными инженерными командами (Agile / Waterfall)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Опыт работы</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Апрель 2024 — Настоящее время</div>
+                    <div class="timeline-title">Цифровой атташе (Минпромторг России)</div>
+                    <div class="timeline-company">Торговое представительство Российской Федерации в Республике Армения</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Обеспечил поддержку экспорта ИКТ и ИБ решений на сумму более $29,6 млн за 2025 год.</li>
+                            <li>Организовал масштабную бизнес-миссию российских компаний на Cybergen 2025 и ИТ-марафон ЕАЭС.</li>
+                            <li>Успешно продвигаю российские сквозные технологии на уровне топ-менеджмента телеком-операторов и ведомств Армении.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Октябрь 2023 — Апрель 2024</div>
+                    <div class="timeline-title">Key Account Manager (B2G, IT Solutions)</div>
+                    <div class="timeline-company">Samsung Electronics</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Руководил проектом по внедрению защищенных MDM-планшетов ($3M) для системы здравоохранения Москвы (7 100 устройств).</li>
+                            <li>Выстроил доверительные отношения с Департаментом информационных технологий (ДИТ) Москвы.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Сентябрь 2022 — Октябрь 2023</div>
+                    <div class="timeline-title">Business Development Manager (Network Security)</div>
+                    <div class="timeline-company">Kaspersky Lab</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Отвечал за продвижение передовых сетевых решений (SD-WAN, NGFW) в России и странах СНГ.</li>
+                            <li>Добился включения ключевых продуктов линейки в официальный реестр ТОРП Минпромторга.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Декабрь 2014 — Сентябрь 2022</div>
+                    <div class="timeline-title">Solution Sales Responsible / Руководитель проектов</div>
+                    <div class="timeline-company">Huawei Technologies</div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Управлял проектами модернизации инфраструктуры ЦОД и масштабными программами SWAP для крупнейших операторов связи.</li>
+                            <li>Координировал работу проектных и инженерных команд при развертывании ИКТ-инфраструктуры.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Образование</h2>
+            <ul class="skills-list" style="padding-left:10px;">
+                <li><strong>Кандидат технических наук (Ph.D.)</strong> — Московский авиационный институт (САПР)</li>
+                <li><strong>Магистр международных отношений</strong> — Дипломатическая академия МИД России</li>
+                <li><strong>Магистр экономики</strong> — Международный инновационный университет</li>
+                <li><strong>Магистр юриспруденции</strong> — Международный инновационный университет</li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+</html>
